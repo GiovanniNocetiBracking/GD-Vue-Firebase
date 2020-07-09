@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app> 
+    <top-header></top-header> 
+    <v-container grid-list-xl text-xs-center>
+    <v-layout row wrap>
+      <v-flex xs10 offset-xs1>
+        <v-card dark color="dark">
+          <router-link to="/login">login</router-link> |
+          <router-link to="/register">register</router-link> |
+          <router-link to="/welcome">welcome</router-link> 
+        </v-card>
+      </v-flex>
+    </v-layout>
+    </v-container>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import topheader from "./components/top-header";
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  components:  {
+    'top-header': topheader
+    },
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
