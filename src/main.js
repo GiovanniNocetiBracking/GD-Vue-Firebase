@@ -20,13 +20,20 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+let app;
+
 export const db = firebase.firestore();
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: (h) => h(App),
-}).$mount("#app");
+firebase.auth().onAuthStateChanged(user => {
+  console.log(user);
+  if(!app){
+    app = new Vue({
+          router,
+          store,
+          vuetify,
+          render: (h) => h(App),
+        }).$mount("#app");
+  }
+})
