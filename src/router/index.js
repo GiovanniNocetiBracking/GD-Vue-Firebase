@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Welcome from '../views/Welcome.vue'
+import Profile from '../views/Profile.vue'
+import dashboard from '../views/Dashboard.vue'
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
@@ -13,7 +15,8 @@ Vue.use(VueRouter)
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    
   },
   {
     path: '/register',
@@ -21,11 +24,23 @@ Vue.use(VueRouter)
     component: Register
   },
   {
-    path: '/welcome',
+    path: '/',
     name: 'welcome',
     component: Welcome,
+    
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile,
     meta: {requiresAuth: true}
   },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: dashboard,
+    meta: {requiresAuth: true}
+  }
  
 ]
 

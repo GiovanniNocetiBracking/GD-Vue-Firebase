@@ -1,18 +1,37 @@
 <template>
-    <div>
-        <div v-if="error" class="error">{{error.message}}</div>
-        <form @submit.prevent="pressed">
-            Registrate! :)
-        <div class="email">
-            <input type="email" v-model="email" placeholder="Ingresa un correo electronico">
-        </div>
-        <div class="password">
-            <input type="password" v-model="password" placeholder="Ingresa una contraseña">
-        </div>
-        <button type="submit" >Registrate!</button>
+     <div class="register">
+         <div v-if="error" class="error">{{error.message}}</div>
+        <form form @submit.prevent="pressed" class="border p-3 form">
+            <div class="form-group">
+            <h1>Registro de usuarios</h1>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input required type="email" class="form-control form-control-lg" v-model="email"/>
+            </div>
+
+            <div class="form-group">
+                <label >Contraseña</label>
+                <input required type="password" class="form-control form-control-lg" v-model="password" />
+            </div>
+             <div class="form-group">
+                <label>Confirmar contraseña</label>
+                <input  type="password" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label>Ingrese su codigo Gas Detect</label>
+                <input required type="password" class="form-control form-control-lg" />
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-lg btn-block">Resgistrarme</button>
+
+                   
+            </div>
         </form>
+        
     </div>
 </template>
+
 
 <script>
 
@@ -31,6 +50,7 @@ import "firebase/auth";
 
                 } catch (error) {
                     console.log(error)
+                    
                 }
             }
         },
@@ -45,5 +65,13 @@ import "firebase/auth";
 </script>
 
 <style lang="scss" scoped>
-
+ .form {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:450px;
+  min-height: 100vh;
+  border: none;
+}
 </style>

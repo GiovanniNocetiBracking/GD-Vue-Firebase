@@ -7,6 +7,13 @@ import VueTextareaAutosize from 'vue-textarea-autosize';
 import firebase from "firebase/app";
 import "firebase/firestore";
 import axios from 'axios';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJa1Fpk0vTqvqapmPlIeh0Y3V26Lxv3xU",
@@ -27,13 +34,14 @@ export const db = firebase.firestore();
 Vue.config.productionTip = false;
 
 firebase.auth().onAuthStateChanged(user => {
-  console.log(user);
+  
   if(!app){
+    
     app = new Vue({
           router,
           store,
-          vuetify,
+          vuetify,          
           render: (h) => h(App),
         }).$mount("#app");
   }
-})
+}) 

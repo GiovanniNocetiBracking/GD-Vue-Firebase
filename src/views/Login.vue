@@ -1,24 +1,44 @@
 <template>
-    <div>
-        Login
-        <form @submit.prevent="pressed">
-            <div class="login">
-                <input type="email" placeholder="Ingresa tu correo electronico" v-model="email">
+     <div class="login">
+         
+             
+        <form form @submit.prevent="pressed" class="border p-3 form center">
+            
+                
+            <div class="form-group">
+            <h1>Iniciar sesion</h1>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control form-control-lg" v-model="email"/>
             </div>
-            <div class="passwor">
-                <input type="password" placeholder="Ingresa tu contraseña" v-model="password">
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control form-control-lg" v-model="password" />
             </div>
-            <button type="submit">Ingresar</button>
+
+            <button type="submit" class="btn btn-dark btn-lg btn-block">Iniciar sesion</button>
+
+            <p class="forgot-password text-right mt-2 mb-4">
+                <router-link to="/#">¿Olvidaste tu contraseña?</router-link>
+            </p>        
+            </div>
+            
+            
         </form>
+        
         <div class="error" v-if="error">{{error.message}}</div>
-        <span>Registrate --> <router-link to="/register" >REGISTRARME</router-link></span>
     </div>
 </template>
-
 <script>
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
+
+
     export default {
+        
         data(){
             return{
                 email:'',
@@ -26,7 +46,7 @@ import 'firebase/auth';
                 error:''
             }
         },
-        methods: {
+           methods: {
             async pressed(){
                 try {
                     const login = await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
@@ -42,5 +62,14 @@ import 'firebase/auth';
 </script>
 
 <style lang="scss" scoped>
-
-</style>
+    
+    .form {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:450px;
+  min-height: 100vh;
+  border: none;
+}
+</style> 
