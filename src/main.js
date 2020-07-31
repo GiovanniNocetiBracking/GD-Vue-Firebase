@@ -8,12 +8,15 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import axios from 'axios';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import VueSidebarMenu from 'vue-sidebar-menu';
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+// Install VueSidebar
+Vue.use(VueSidebarMenu)
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJa1Fpk0vTqvqapmPlIeh0Y3V26Lxv3xU",

@@ -1,27 +1,23 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" class="clase-navbar fixed-top "  dense>
-      <b-navbar-brand class="ml-auto font-italic" @click="alert()" style="color:red;" to="/">
-      
+  <div id="main">   
+    <b-navbar toggleable="lg" class="clase-navbar fixed-top" dense>
+
+      <b-navbar-brand class="mr-auto font-italic" @click="alert()" style="color:red;" to="/">
         <h2>Gas Detect</h2>
-      
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="navbar-nav mr-auto">
           <b-button-group>
-            <div v-if="this.$route.path != '/dashboard' && this.$route.path != '/profile' " style="center">
+            <div v-if="this.$route.path == '/' " style="center">
               <a href="#div1">
-              <b-button  class="transparent">¿Que es Gas Detect?                
-              </b-button>
+                <b-button class="transparent">¿Que es Gas Detect?</b-button>
               </a>
               <a href="#div2">
-              <b-button  class="transparent">¿Quienes somos?               
-              </b-button>
+                <b-button class="transparent">¿Quienes somos?</b-button>
               </a>
               <a href="#div3">
-              <b-button  class="transparent">Contacto                
-              </b-button>
+                <b-button class="transparent">Contacto</b-button>
               </a>
             </div>
           </b-button-group>
@@ -75,7 +71,7 @@
                   <svg
                     width="1em"
                     height="1em"
-                    viewBox="0 0 16 16" 
+                    viewBox="0 0 16 16"
                     class="bi bi-person-circle"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +147,7 @@
           </b-button-group>
         </b-navbar-nav>
       </b-collapse>
-    </b-navbar>
+    </b-navbar>     
   </div>
 </template>
 
@@ -168,6 +164,8 @@ export default {
   data() {
     return {
       loggedIn: false,
+      estadobtnsidebar: true,
+      
     };
   },
   methods: {
@@ -180,12 +178,15 @@ export default {
         console.log(error);
       }
     },
-    prueba(){
-      console.log("funciono")
+    prueba() {
+      console.log("funciono");
     },
-    alert(){
-    alert("estas a punto de volver al inicio")
-    }
+    alert() {
+      alert("estas a punto de volver al inicio");
+    },
+    btnsidebar() {
+      this.estadobtnsidebar = !this.estadobtnsidebar;
+    },
   },
 };
 </script>
@@ -194,5 +195,4 @@ export default {
 .clase-navbar {
   background: rgba(34, 34, 34, 0.986);
 }
-
 </style>

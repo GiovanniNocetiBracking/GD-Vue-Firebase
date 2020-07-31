@@ -3,6 +3,8 @@
   <v-app >
     
     <top-header></top-header> 
+    <sidebar></sidebar>
+   
     <v-main>
       <router-view/>
     </v-main>
@@ -13,12 +15,19 @@
 
 <script>
 import topheader from "./components/top-header";
+import sidebar from "./components/sidebar";
+
+
+
 
 export default {
   name: 'App',
 
   components:  {
-    'top-header': topheader
+    'top-header': topheader,
+    'sidebar': sidebar,
+    
+    
     },
 
   data: () => ({
